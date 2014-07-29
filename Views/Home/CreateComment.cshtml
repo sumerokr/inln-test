@@ -1,0 +1,14 @@
+﻿@model inln_test.Models.CommentModel
+
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("CreateComment", "Home", FormMethod.Post, new { @class = "form-inline", @id = "id-form" }))
+{
+    @Html.ValidationSummary(true)
+    <input id="Text" class="span5" type="text" name="Text" placeholder="Введите комментарий" />
+    @Html.ValidationMessageFor(model => model.Text)
+    <button id="save-comment" type="button" class="btn btn-primary"><i class="icon-plus-sign icon-white"></i> Добавить</button>
+}
+

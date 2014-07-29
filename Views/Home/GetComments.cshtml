@@ -1,0 +1,21 @@
+﻿@model IEnumerable<inln_test.Models.CommentModel>
+
+@{
+    Layout = null;
+}
+
+@if (Model != null && Model.Count() > 0)
+{
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text)
+            </td>
+        </tr>
+    }
+}
+else
+{
+    <div class="alert alert-info">комментариев нет <button class="close" data-dismiss="alert">&times;</button></div>
+}

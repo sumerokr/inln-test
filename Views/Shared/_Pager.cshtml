@@ -1,0 +1,23 @@
+﻿@model inln_test.Models.PagerModel
+
+@if (Model.TotalPages > 1)
+{
+<div class="pagination">
+    <ul>
+        @for (var ii = @Model.ActivePage - 4; ii <= @Model.ActivePage + 4; ii++)
+        {
+            if (ii >= 1 && ii <= @Model.TotalPages)
+            {
+                if (ii == @Model.ActivePage)
+                {
+                    <li class="active"><a href="@Url.Content("~/Home/Index?id=" + ii + "&date=" + @Model.CurrentDate.ToString("dd-MM-yyyy"))">@ii</a></li>
+                }
+                else
+                {
+                    <li><a href="@Url.Content("~/Home/Index?id=" + ii + "&date=" + @Model.CurrentDate.ToString("dd-MM-yyyy"))">@ii</a></li>
+                }
+            }
+        }
+    </ul>
+</div>
+}
